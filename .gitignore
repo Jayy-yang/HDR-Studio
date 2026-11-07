@@ -1,0 +1,21 @@
+.venv/
+.vendor/
+.ssh/
+.tmp/
+manualtmp/
+shelltmp/
+__pycache__/
+*.py[cod]
+*.log
+tests/output/
+docs/smoke_*
+.pipcache/
+install.log
+exports/
+hdrstudio_settings.json
+hdrstudio_error.log
+hdrstudio_self_test.txt
+hdrstudio_self_test_error.log
+build*/
+dist*/
+HDR Studio/
