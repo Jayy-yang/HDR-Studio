@@ -26,19 +26,7 @@
 
 ### 免 Python 运行版（已生成）
 
-直接双击：
-
-```
-HDR Studio\HDR Studio.exe
-```
-
-也可以从 Windows 开始菜单搜索 **HDR Studio** 打开。
-
-- 这是一个文件夹形式的程序：`HDR Studio.exe` 旁边的 `_internal\` 是运行依赖，**不要只单独复制 exe**。
-- 启动时仍会请求 **UAC 管理员权限**；取消则程序退出。
-- 开始菜单快捷方式位于 `%APPDATA%\Microsoft\Windows\Start Menu\Programs\HDR Studio.lnk`。
-- 如果移动了整个 `HDR-Studio` 项目目录，快捷方式会失效；重新运行下面的打包脚本即可更新。
-
+下载 release中的 hdr-studio-v1_0.zip  解压缩，并确保HDR Studio.exe  和  _internal  处于同一个文件夹下，然后双击HDR Studio.exe  即可运行
 ### Windows 一键启动（源码版）
 
 双击项目根目录的 **`启动HDR工具.bat`**。
@@ -50,41 +38,7 @@ HDR Studio\HDR Studio.exe
 > 需要 Python 3.10 或更高版本。如果系统没有 Python，请先从
 > [python.org](https://www.python.org/downloads/) 安装，并勾选 “Add Python to PATH”。
 
-### 手动安装
-
-```bash
-# 建议使用虚拟环境
-py -3 -m venv .venv
-.venv\Scripts\activate
-
-pip install -r requirements.txt
-python app.py
-```
-
-macOS / Linux：
-
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-python app.py
-```
-
 依赖只有 NumPy、Pillow 和 OpenCV-Python，Tkinter 随 Python 一起安装。
-
-### 重新生成 Windows 可执行版
-
-```powershell
-powershell -ExecutionPolicy Bypass -File tools\build_exe.ps1
-```
-
-脚本会：
-
-1. 用 PyInstaller 生成 `HDR Studio\HDR Studio.exe`（文件夹版，包含 `_internal\` 依赖）；
-2. 运行打包后的自检，确认 Tkinter 和图标资源可用；
-3. 在当前用户的开始菜单创建/更新 `HDR Studio.lnk`。
-
-首次构建会自动安装 PyInstaller。程序放在项目目录内，避免部分 Windows 策略阻止从 `%LOCALAPPDATA%\Programs` 运行未签名程序；`app.py` 源码版继续使用 `.venv`，不依赖这个 exe。
 
 ## 使用步骤
 
